@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/splashFragment">
+
+    <fragment
+        android:id="@+id/splashFragment"
+        android:name="com.arbolesyazilim.zikirmatik.SplashFragment"
+        android:label="fragment_splash"
+        tools:layout="@layout/fragment_splash">
+
+        <action
+            android:id="@+id/action_splashFragment_to_dailyZikirFragment"
+            app:destination="@id/dailyZikirFragment"
+            app:popUpTo="@id/splashFragment"
+            app:popUpToInclusive="true"
+            />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mainFragment"
+        android:name="com.arbolesyazilim.zikirmatik.MainFragment"
+        android:label="fragment_main"
+        tools:layout="@layout/fragment_main">
+        <action
+            android:id="@+id/action_mainFragment_to_zikirFragment"
+            app:destination="@id/zikirFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_zikirAddFragment"
+            app:destination="@id/zikirAddFragment" />
+
+    </fragment>
+
+    <fragment
+        android:id="@+id/zikirAddFragment"
+        android:name="com.arbolesyazilim.zikirmatik.ZikirAddFragment"
+        android:label="fragment_zikir_add"
+        tools:layout="@layout/fragment_zikir_add">
+        <action
+            android:id="@+id/action_zikirAddFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/zikirFragment"
+        android:name="com.arbolesyazilim.zikirmatik.ZikirFragment"
+        android:label="fragment_zikir"
+        tools:layout="@layout/fragment_zikir">
+        <argument
+            android:name="zikirName"
+            app:argType="string" />
+        <argument
+            android:name="zikirNumber"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_zikirFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/dailyZikirFragment"
+        android:name="com.arbolesyazilim.zikirmatik.DailyZikirFragment"
+        android:label="fragment_daily_zikir"
+        tools:layout="@layout/fragment_daily_zikir" >
+        <action
+            android:id="@+id/action_dailyZikirFragment_to_mainFragment"
+            app:destination="@id/mainFragment" />
+        <action
+            android:id="@+id/action_dailyZikirFragment_to_zikirAddFragment"
+            app:destination="@id/zikirAddFragment" />
+    </fragment>
+</navigation>
